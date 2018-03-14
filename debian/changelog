@@ -1,0 +1,13 @@
+python-tinyrpc (0.8-1) unstable; urgency=medium
+
+  * updating to 0.8
+
+ --  Jayden Hewer <jfh13@students.waikato.ac.nz>  Tue, 6 Mar 2018 13:51:44 +13000
+
+python-tinyrpc (0.6-1) unstable; urgency=medium
+
+  * The “خالد الجهني (Khaled Al-Jehani)” release.
+  * Initial release.
+    Closes: bug#866515.
+
+ -- Ben Finney <bignose@debian.org>  Sun, 27 Aug 2017 18:44:10 +1000

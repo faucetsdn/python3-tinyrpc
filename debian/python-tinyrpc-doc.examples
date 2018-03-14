@@ -1,0 +1,12 @@
+# debian/python-tinyrpc-doc.examples
+# Example files to install during ‘python-tinyrpc-doc’ package build.
+# Manual page: ‘dh_installexamples(1)’.
+
+examples/*.py
+
+
+# Local variables:
+# coding: utf-8
+# mode: conf
+# End:
+# vim: fileencoding=utf-8 filetype=conf :

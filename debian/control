@@ -1,0 +1,86 @@
+Source: python-tinyrpc
+Maintainer: Ben Finney <bignose@debian.org>
+Section: python
+Priority: optional
+Standards-Version: 4.0.1
+Build-Depends:
+    python3-sphinx,
+    python3-pytest-runner,
+    python3-gevent,
+    python3-requests,
+    python3-websocket,
+    python3-jsonext,
+    python3-zmq,
+    python3-six,
+    python3-setuptools,
+    python3-all,
+    python-sphinx,
+    python-pytest-runner,
+    python-mock,
+    python-gevent,
+    python-requests,
+    python-websocket,
+    python-jsonext,
+    python-zmq,
+    python-six,
+    python-setuptools,
+    python-all (>= 2.7~),
+    dh-python,
+    debhelper (>= 10~)
+Homepage: https://pypi.org/project/tinyrpc/
+VCS-Git: https://anonscm.debian.org/git/users/bignose/debian/pkg-python-tinyrpc.git
+VCS-Browser: https://anonscm.debian.org/git/users/bignose/debian/pkg-python-tinyrpc.git
+X-Python-Version: >= 2.7
+X-Python3-Version: >= 3.3
+
+Package: python3-tinyrpc
+Architecture: all
+Depends:
+    ${python3:Depends},
+    ${misc:Depends}
+Suggests:
+    python-tinyrpc-doc
+Description: small, modular RPC library — Python 3
+ ‘tinyrpc’ is a library for making and handling RPC calls in Python.
+ .
+ Its initial scope is handling JSON-RPC, although it aims to be very
+ well-documented and modular to make it easy to add support for
+ further protocols.
+ .
+ A feature is support of multiple transports (or none at all) and
+ providing clever syntactic sugar for writing dispatchers.
+ .
+ This package installs the library for Python 3.
+
+Package: python-tinyrpc
+Architecture: all
+Depends:
+    ${python:Depends},
+    ${misc:Depends}
+Suggests:
+    python-tinyrpc-doc
+Description: small, modular RPC library — Python 2
+ ‘tinyrpc’ is a library for making and handling RPC calls in Python.
+ .
+ Its initial scope is handling JSON-RPC, although it aims to be very
+ well-documented and modular to make it easy to add support for
+ further protocols.
+ .
+ A feature is support of multiple transports (or none at all) and
+ providing clever syntactic sugar for writing dispatchers.
+ .
+ This package installs the library for Python 2.
+
+Package: python-tinyrpc-doc
+Architecture: all
+Section: doc
+Depends:
+    ${misc:Depends}
+Description: small, modular RPC library — documentation
+ ‘tinyrpc’ is a library for making and handling RPC calls in Python.
+ .
+ Its initial scope is handling JSON-RPC, although it aims to be very
+ well-documented and modular to make it easy to add support for
+ further protocols.
+ .
+ This package installs the library documentation.
