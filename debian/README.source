@@ -1,0 +1,45 @@
+==========================================
+Debian source package for ‘python-tinyrpc’
+==========================================
+
+Build source package from VCS
+=============================
+
+The source for the Debian packaging is managed in the ‘master’ branch
+of the Git repository.
+
+To build the source package from the Git VCS:
+
+* Get the upstream source::
+
+      $ debian/rules get-packaged-orig-source
+
+  Ensure the upstream source is placed where Git-BuildPackage will
+  find it for building the Debian source package.
+
+* Finalise the latest release in the Debian changelog::
+
+      $ debchange --release ""
+
+  This is needed temporarily to build the source package with Debian
+  packaging tools.
+
+  While developing the package, do not commit to the VCS any Debian
+  changelog that has any content in the release trailer for the latest
+  entry.
+
+  Until that release is ready to finalise, it has not been uploaded to
+  Debian and so does not have a correct distribution, uploader, or
+  release timestamp. The header and trailer for the entry should
+  remain open during development to reflect this.
+
+* Build the source package with Git-BuildPackage::
+
+      $ gbp buildpackage
+
+  Git-BuildPackage is configured (via the ‘debian/gbp.conf’ file) to
+  build the source package by overlaying the Debian packaging files
+  onto the upstream source.
+
+
+ -- Ben Finney <bignose@debian.org>, Sat, 26 Aug 2017 12:03:40 +1000

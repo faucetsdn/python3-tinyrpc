@@ -1,0 +1,12 @@
+Document: python-tinyrpc
+Title: ‘tinyrpc’ Python library documentation
+Author: Marc Brinkmann
+Abstract: Programmer documentation for the Python ‘tinyrpc’ library.
+Section: Programming/Python
+
+Format: HTML
+Index: /usr/share/doc/python-tinyrpc-doc/html/index.html
+Files:
+    /usr/share/doc/python-tinyrpc-doc/html/*.html
+    /usr/share/doc/python-tinyrpc-doc/html/*.js
+    /usr/share/doc/python-tinyrpc-doc/html/_static/*

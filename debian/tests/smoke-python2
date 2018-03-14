@@ -1,0 +1,40 @@
+#! /bin/bash
+#
+# debian/tests/smoke-python2
+# Part of Debian ‘python-tinyrpc’ package.
+#
+# Copyright © 2016–2017 Ben Finney <bignose@debian.org>
+# This is free software: you may copy, modify, and/or distribute this work
+# under the terms of the GNU General Public License as published by the
+# Free Software Foundation; version 3 of that license or any later version.
+# No warranty expressed or implied.
+#
+# Smoke test for package in Python 2 environments.
+
+set -o errexit
+set -o errtrace
+set -o nounset
+
+DISTRIBUTION_NAME=tinyrpc
+MODULE_NAMES=(
+        tinyrpc
+        )
+
+test_opts="--distribution=$DISTRIBUTION_NAME"
+for mod in ${MODULE_NAMES[@]} ; do
+    # Accumulate the module names.
+    test_opts="$test_opts --module=$mod"
+done
+
+for py in $(pyversions -i) ; do
+    printf "Python command: %s\n" $py
+    $py debian/tests/smoke_test.py $test_opts
+    printf "\n"
+done
+
+
+# Local variables:
+# coding: utf-8
+# mode: shell-script
+# End:
+# vim: fileencoding=utf-8 filetype=sh :

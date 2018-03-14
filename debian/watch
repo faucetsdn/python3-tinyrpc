@@ -1,0 +1,19 @@
+# debian/watch
+# Debian UScan configuration for ‘python-tinyrpc’ package.
+# Manual page: ‘uscan(1)’.
+
+# Version of UScan configuration format.
+version = 4
+
+# Source tarball from Marc Brinkmann's repository.
+opts = "uversionmangle=s/(\d)((?:dev|a|b|c|rc)\d*)$/$1~$2/" \
+    https://github.com/mbr/tinyrpc/releases/ \
+    .+/archive/v?@ANY_VERSION@@ARCHIVE_EXT@ \
+    debian uupdate
+
+
+# Local variables:
+# coding: utf-8
+# mode: conf
+# End:
+# vim: fileencoding=utf-8 filetype=conf :
