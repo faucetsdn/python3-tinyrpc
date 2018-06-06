@@ -1,3 +1,9 @@
+python-tinyrpc (0.9.1-1) unstable; urgency=medium
+
+  * New upstream release.
+
+ -- Brad Cowie <brad@faucet.nz>  Wed, 06 Jun 2018 14:23:12 +1200
+
 python-tinyrpc (0.8-1) unstable; urgency=medium
 
   * updating to 0.8
