@@ -2,15 +2,14 @@ stages:
   - build
   - deploy
 
-run-build:
+build-package:
   stage: build
   image: faucet/dbuilder
   script:
-    - cd /builds/faucetsdn/python3-tinyrpc
-    - apt-get update
+    - apt-get update && apt-get upgrade -y
     - mk-build-deps -i -r -t 'apt-get -f -y --force-yes'
     - export DEBEMAIL='maintainers@faucet.nz' && export DEBFULLNAME='Faucet Maintainers'
-    - fakeroot debian/rules binary
+    - dpkg-buildpackage -b -us -uc -rfakeroot
     - mkdir built-packages || true
     - mv ../*.deb built-packages/
   artifacts:
@@ -22,16 +21,5 @@ deploy-package:
   stage: deploy
   image: faucet/dbuilder
   script:
-    - cd /builds/faucetsdn/python3-tinyrpc/built-packages/
-    - echo "{\"url\":\"https://packagecloud.io\",\"token\":\"$PACKAGECLOUD_TOKEN\"}" > ~/.packagecloud
-    - package_cloud push faucetsdn/faucet/debian/jessie *.deb || true
-    - package_cloud push faucetsdn/faucet/debian/stretch *.deb || true
-    - package_cloud push faucetsdn/faucet/debian/buster *.deb || true
-    - package_cloud push faucetsdn/faucet/raspbian/jessie *.deb || true
-    - package_cloud push faucetsdn/faucet/raspbian/stretch *.deb || true
-    - package_cloud push faucetsdn/faucet/raspbian/buster *.deb || true
-    - package_cloud push faucetsdn/faucet/ubuntu/xenial *.deb || true
-    - package_cloud push faucetsdn/faucet/ubuntu/yakkety *.deb || true
-    - package_cloud push faucetsdn/faucet/ubuntu/zesty *.deb || true
-    - package_cloud push faucetsdn/faucet/ubuntu/artful *.deb || true
-    - package_cloud push faucetsdn/faucet/ubuntu/bionic *.deb || true
+    - cd built-packages/
+    - ../gitlab/deploy_deb.sh
